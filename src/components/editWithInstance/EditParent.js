@@ -56,9 +56,12 @@ class Parent extends Component {
             });
         }
 
+    }
 
-
-
+    cancel = () => {
+        this.setState({
+            showInput : !this.state.showInput
+        });
     }
 
     render() {
@@ -71,14 +74,14 @@ class Parent extends Component {
                     <div className="parent-div">
                         <p>FirstName : {this.state.childFname}  <button onClick={this.showComponent.bind(this , 'fname')}>Edit FirstName</button></p>
                         <p>LastName :  {this.state.childLname} <button onClick={this.showComponent.bind(this , 'lname')} >Edit LastName</button></p>
-                        <button onClick={this.handelSubmitChildComponent.bind(this)}>Submit</button>
+                        {/*<button onClick={this.handelSubmitChildComponent.bind(this)}>Submit</button>*/}
                     </div>
                     <div className="container-child">
 
 
                         {
                             (this.state.showInput)?
-                                (<EditChild data={this.state.myprop} onRef={ref => (this.child = ref)} title="Edit Your Name Here : "/>):''
+                                (<EditChild cancelClick={this.cancel.bind(this)} subMitClick={this.handelSubmitChildComponent.bind(this)} data={this.state.myprop} onRef={ref => (this.child = ref)} title="Edit Your Name Here : "/>):''
                         }
 
 

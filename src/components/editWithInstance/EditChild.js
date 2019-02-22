@@ -45,6 +45,8 @@ class Child extends Component {
                            onChange={this.handelChange.bind(this)}/>
 
                     <hr/>
+                    <button onClick={()=>{this.props.subMitClick()}} >Submit</button>  {/*onClick={this.handelSubmitChildComponent.bind(this)}*/}
+                    <button onClick={()=>{ this.props.cancelClick()}}>Cancel</button>
                 </div>
             </React.Fragment>
         );
